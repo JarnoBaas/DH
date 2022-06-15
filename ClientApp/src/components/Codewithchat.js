@@ -1,15 +1,13 @@
 import React from "react";
 import CodeEditor from "./CodeEditor";
-import { useState } from 'react';
-import Newchatroom from "./newchatroom";
-import RoomSelector from './RoomSelector'
+import NewChat from "./NewChat";
 
-const Codewithchat = () => {
+const Codewithchat = ({roomName, exitFunc, username}) => {
     
     return (<div className="codePage">
-        <Newchatroom />
+        <NewChat roomName={roomName} username={username}/>
         <div class="verticalLine"></div>
-        <RoomSelector />
+        <CodeEditor roomName={roomName} test={exitFunc}/>
     </div>
         
     )

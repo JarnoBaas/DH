@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\1011555\\Desktop\\Nieuwe app\\geenidee.csproj": {}
+    "C:\\Users\\1011555\\Desktop\\deveheav-main\\geenidee.csproj": {}
   },
   "projects": {
-    "C:\\Users\\1011555\\Desktop\\Nieuwe app\\geenidee.csproj": {
+    "C:\\Users\\1011555\\Desktop\\deveheav-main\\geenidee.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1011555\\Desktop\\Nieuwe app\\geenidee.csproj",
+        "projectUniqueName": "C:\\Users\\1011555\\Desktop\\deveheav-main\\geenidee.csproj",
         "projectName": "geenidee",
-        "projectPath": "C:\\Users\\1011555\\Desktop\\Nieuwe app\\geenidee.csproj",
+        "projectPath": "C:\\Users\\1011555\\Desktop\\deveheav-main\\geenidee.csproj",
         "packagesPath": "C:\\Users\\1011555\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1011555\\Desktop\\Nieuwe app\\obj\\",
+        "outputPath": "C:\\Users\\1011555\\Desktop\\deveheav-main\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\1011555\\AppData\\Roaming\\NuGet\\NuGet.Config"

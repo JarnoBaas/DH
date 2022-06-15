@@ -6,7 +6,7 @@ class NewChat extends React.Component{
     constructor(props) {
         super(props)
         this.state = {
-            client: new WebSocket(`wss://localhost:5001/ws2`),
+            client: new WebSocket(`ws://localhost:80/ws2?name=${props.roomName}`),
             AllMessages: [],
             username: props.username
         };
@@ -54,11 +54,18 @@ class NewChat extends React.Component{
          <div>
             <div className='message-container' >
             {this.state.AllMessages.map((message) =>
-                <div className='user-message'>
-                    <div className='message bg-primary'>{message.msg}</div>
-                    <div className='from-user'>{message.user}</div>
-                </div>
-            )}
+                   <div>{message.user == this.state.username ? <div className='user-message'>
+                       <div className='message bg-primary'>{message.msg}</div>
+                       <div className='from-user'>{message.user}</div>
+                   </div>
+                   : <div className='otheruser-message'>
+                       <div className='message bg-secondary'>{message.msg}</div> 
+                       <div className='from-user'>{message.user}</div>
+                   </div>
+                   }
+                   </div>
+                   
+               )}
             </div>
             <SendMessageForm sendMessage={this.sendMessage} />
          </div>

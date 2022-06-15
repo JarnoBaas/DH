@@ -14,7 +14,7 @@ const Login = () => {
     const Auth = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/login', {
+            await axios.post('http://developersheaven.nl:5000/login', {
                 email: email,
                 password: password
             });
@@ -25,22 +25,22 @@ const Login = () => {
     }
         return (
             <section id="loginform">
-                <h2 id="headerTitle">Login </h2>
+                <h2 id="headerTitle">Inloggen </h2>
                 <form onSubmit={Auth}>
                 <div class="row">
                     <label>Email</label>
                     <input type="text" className="input" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <div class="row">
-                    <label>Password</label>
-                    <input type="password" className="input" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <label>Wachtwoord</label>
+                    <input type="password" className="input" placeholder="Wachtwoord" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 <div id="button" class="row">
-                    <button onSubmit={Auth}>Login</button>
+                    <button onSubmit={Auth}>Inloggen</button>
                 </div>
                 <p className="isa_error">{msg}</p>
                 </form>
-                <li className="noaccount"><NavLink tag={Link} to="/register">Dont have an account? Create one</NavLink></li>
+                <li className="noaccount"><NavLink tag={Link} to="/register">Heb je geen account? Creëer er een</NavLink></li>
             </section>
         )
 }

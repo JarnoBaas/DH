@@ -1,32 +1,37 @@
 import React from "react";
 import CodeEditor from "./CodeEditor";
 import { useState } from 'react';
+import Codewithchat from "./Codewithchat";
+import Newchatroom from "./newchatroom";
 
-const RoomSelector = () => {
-    const [name, setName] = useState(false);
-    const [value, setValue] = useState("");
+const RoomSelector = (name) => {
+    const [joined, setJoined] = useState(false);
+    const [room, setRoom] = useState("");
 
+    const [username, setUsername] = useState("");
+
+    
     const exitRoom = () => {
-        setName(false)
+        setJoined(false)
     }
 
     const enterRoom = () => {
-        setName(true)
+        setUsername(name.name)
+        setJoined(true)
         //console.log({value})
     }
 
-    return (/*
+    return (
         <div>
-             {name == false ? <div>
-                 <input id="Something" onChange={(e) => setValue(e.target.value)}/>
+             {joined == false ? <div>
+                 <input placeholder="Roomname" id="Something" onChange={(e) => setRoom(e.target.value)}/>
                  <button onClick={() => enterRoom()}>Enter room</button>
                  </div> 
                  : <div>
-                    <CodeEditor roomName={value} test={exitRoom}/>
+                    <Codewithchat roomName={room} exitFunc={exitRoom} username={username}/>
                  </div>}
         </div>
-        */
-        <CodeEditor roomName="random" test={exitRoom}/>
+        
     )
 }
 

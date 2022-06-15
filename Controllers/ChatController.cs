@@ -16,7 +16,9 @@ namespace somethingg.Controllers
     public class ChatController : ControllerBase
     {
         private readonly ILogger<ChatController> _logger;
+        static private List<Room> Rooms = new List<Room>();
         static private List<WebSocket> ConnectedClientsList = new List<WebSocket>();
+        private Room room;
         
         public ChatController(ILogger<ChatController> logger) //,IWebsocketHandler websocketHandler
         {
@@ -24,17 +26,22 @@ namespace somethingg.Controllers
         }
 
         [HttpGet("/ws2")]
-        public async Task Get()
+        public async Task Get(string name)
         {
           if (HttpContext.WebSockets.IsWebSocketRequest)
           {
             using var webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
             var context = ControllerContext.HttpContext;
 
-            ConnectedClientsList.Add(webSocket);
+            if(!Rooms.Any((x) => x.RoomName == name)){
+                Rooms.Add(new Room(name));
+            }
+            var temp = Rooms.Where(x => x.RoomName == name);
+            this.room = temp.ToArray()[0];
+            this.room.ConnectClient(webSocket);
 
-            Console.WriteLine($"connected ## clients:");
-            foreach(var x in ConnectedClientsList){
+            Console.WriteLine($"Chat --- {name}");
+            foreach(var x in this.room.ConnectedClients){
                 Console.WriteLine($"--- {x}");
             }
 
@@ -59,7 +66,7 @@ namespace somethingg.Controllers
                 var serverMsg = Encoding.UTF8.GetBytes($"{Encoding.UTF8.GetString(buffer)}");
                 //Console.WriteLine(System.Text.Encoding.Default.GetString(serverMsg));
 
-                foreach(WebSocket x in ConnectedClientsList){
+                foreach(WebSocket x in room.ConnectedClients){
                     if(webSocket != x){
                         await x.SendAsync(new ArraySegment<byte>(serverMsg, 0, serverMsg.Length), result.MessageType, result.EndOfMessage, CancellationToken.None);
                         _logger.Log(LogLevel.Information, "Message sent to Client");
@@ -74,10 +81,10 @@ namespace somethingg.Controllers
             await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
             _logger.Log(LogLevel.Information, "WebSocket connection closed");
             
-            //room.DisconnectClient(webSocket);
+            room.DisconnectClient(webSocket);
 
-            int indexToRemove = ConnectedClientsList.IndexOf(webSocket);
-            ConnectedClientsList.RemoveAt(indexToRemove);
+            //int indexToRemove = ConnectedClientsList.IndexOf(webSocket);
+            //ConnectedClientsList.RemoveAt(indexToRemove);
         }
     }
 }

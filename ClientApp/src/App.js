@@ -29,7 +29,7 @@ export default class App extends Component {
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
         <Route path='/dashboard' component={Dashboard} />
-        <Route path='/editor' component={Codewithchat} />
+        <Route path='/editor' component={RoomSelector} />
       </Layout>
     );
   }

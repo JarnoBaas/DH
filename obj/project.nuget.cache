@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4JmbM7KGQFkQ5DeOwQzSQGijLuBcOMrnxFgDKql/QDIXI1VN0UUz5mwcQDMxlYQKVcTXGJijvSYmEKQZ2mE8+A==",
+  "dgSpecHash": "jLneVKrvnu3QsqrB/0IBWXRwPSMZuVTwrG0Gbt9UlH0cbxFGjWWBaL1v+WBV81hXfyKmsjTo14+Wu1haSCAb3A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\1011555\\Desktop\\Nieuwe app\\geenidee.csproj",
+  "projectFilePath": "C:\\Users\\1011555\\Desktop\\deveheav-main\\geenidee.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\1011555\\.nuget\\packages\\microsoft.aspnetcore.spaservices.extensions\\5.0.11\\microsoft.aspnetcore.spaservices.extensions.5.0.11.nupkg.sha512",
     "C:\\Users\\1011555\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\5.0.0\\microsoft.extensions.fileproviders.abstractions.5.0.0.nupkg.sha512",

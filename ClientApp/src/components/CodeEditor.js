@@ -19,8 +19,8 @@ class CodeEditor extends React.Component{
     constructor(props) {
         super(props)
         this.state = {
-            text: `console.log("xdd")`,
-            client: new WebSocket(`ws://localhost:3000/ws?name=${props.roomName}`),
+            text: `console.log("Hello world")`,
+            client: new WebSocket(`ws://localhost:80/ws?name=${props.roomName}`),
             //consoleMessages : [],
             output: ``
         };
@@ -135,7 +135,7 @@ class CodeEditor extends React.Component{
             <div className='editor__footer'>
                 <div className='editor__footer--left'>
                     <button className='editor__btn editor__run' onClick={() => this.executeCode()}> Run {'>'}</button>
-                    <button className='editor__btn editor__reset' onClick={() => this.resetCode()}> Reset {'>'}</button>
+                    <button className='editor__btn editor__reset' onClick={() => this.resetCode()}> Resetten {'>'}</button>
                 </div>
                 <div className='editor__footer--right'>
                     <div className='editor__console'>

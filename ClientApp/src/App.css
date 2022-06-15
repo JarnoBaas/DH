@@ -1,7 +1,7 @@
-Form Button {
+/* Form Button {
     width: 100%;
     max-width: 79px;
-}
+} */
 
 h2 {
     color: #141414;
@@ -68,6 +68,13 @@ hr.line {
 .user-message {
     
     text-align: right;
+    padding-right: 5px;
+    font-size: 18px;
+}
+
+.otheruser-message {
+    
+    text-align: left;
     padding-right: 5px;
     font-size: 18px;
 }

@@ -66,27 +66,27 @@ const Register = () => {
 //   );
     return (
         <section id="loginform">
-            <h2 id="headerTitle">Login </h2>
+            <h2 id="headerTitle">Aanmelden </h2>
             <form onSubmit={Register}>
             <div class="row">
-                <label>Name</label>
-                <input type="text" className="input" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+                <label>Naam</label>
+                <input type="text" className="input" placeholder="Naam" value={name} onChange={(e) => setName(e.target.value)} />
             </div>
             <div class="row">
                 <label>Email</label>
                 <input type="text" className="input" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value={email} onChange={(e) => setEmail(e.target.value)} />
             </div>          
             <div class="row">
-                <label>Password</label>
+                <label>Wachtwoord</label>
                 <input type="password" className="input" placeholder="******" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
             <div class="row">
-                <label>Confirm Password</label>
+                <label>Bevestig wachtwoord</label>
                 <input type="password" className="input" placeholder="******" value={confPassword} onChange={(e) => setConfPassword(e.target.value)} />
             </div>
             <p className="isa_error">{msg}</p>
             <div id="button" class="row">
-                <button onSubmit={Register}>Register</button>
+                <button onSubmit={Register}>Aanmelden</button>
             </div>
             </form>    
         </section>       
